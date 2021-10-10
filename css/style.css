@@ -461,12 +461,20 @@ html, body {
         padding: 3.2rem 2.4rem;
         border-radius: .8rem;
         text-align: center;
+        transition: .3s;
+        opacity: 0;
+        transform: translateY(-4.5rem);
         box-shadow: 0 0 3rem .5rem rgba(0, 0, 0, .3);
         background-color: hsl(0, 0%, 100%);
     }
 
     .header__nav--open {
         display: flex;
+    }
+
+    .header__nav--show {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .header__dropdown {
@@ -486,14 +494,18 @@ html, body {
         cursor: default;
     }
 
+    .header__dropdown__item-text::after {
+        top: 25%;
+        background-image: url('../images/icon-arrow-dark.svg');
+    }
+
     .header__dropdown__item:hover .header__dropdown__item-text {
         text-decoration: none;
         color: var(--text-body);
     }
 
-    .header__dropdown__item-text::after {
-        top: 25%;
-        background-image: url('../images/icon-arrow-dark.svg');
+    .header__dropdown__item:hover .header__dropdown__submenu-area {
+        display: none;
     }
 
     .header__dropdown__submenu-area {

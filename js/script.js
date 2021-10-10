@@ -6,11 +6,14 @@ const dropdownItems = document.querySelectorAll('.header__dropdown__item')
 // Menu
 function openMenu() {
     headerNav.classList.add('header__nav--open')
+    setTimeout(() => headerNav.classList.add('header__nav--show'), 10)
     menuMobile.querySelector('img').src = './images/icon-close.svg'
 }
 function closeMenu() {
-    headerNav.classList.remove('header__nav--open')
+    headerNav.classList.remove('header__nav--show')
+    setTimeout(() =>headerNav.classList.remove('header__nav--open'), 200)
     menuMobile.querySelector('img').src = './images/icon-hamburger.svg'
+    
     closeSubmenus()
 }
 function toggleMenu() {
