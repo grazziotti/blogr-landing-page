@@ -30,7 +30,7 @@ hamburgerIcon.addEventListener('click', toggleMenu)
 let selectedSubmenu
 
 const closeSubmenu = () => {
-    if (selectedSubmenu !== null)
+    if (selectedSubmenu !== undefined)
         selectedSubmenu.classList.remove('header__dropdown__item--open')
 }
 
