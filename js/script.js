@@ -1,4 +1,4 @@
-const menuMobile = document.querySelector('.js-menu-mobile')
+const hamburgerIcon = document.querySelector('.js-hamburger')
 const headerNav = document.querySelector('.js-header-nav')
 const dropdownItems = document.querySelectorAll('.header__dropdown__item')
 
@@ -7,12 +7,12 @@ const dropdownItems = document.querySelectorAll('.header__dropdown__item')
 function openMenu() {
     headerNav.classList.add('header__nav--open')
     setTimeout(() => headerNav.classList.add('header__nav--show'), 10)
-    menuMobile.querySelector('img').src = './images/icon-close.svg'
+    hamburgerIcon.classList.add('header__hamburger--open')
 }
 function closeMenu() {
     headerNav.classList.remove('header__nav--show')
     setTimeout(() =>headerNav.classList.remove('header__nav--open'), 200)
-    menuMobile.querySelector('img').src = './images/icon-hamburger.svg'
+    hamburgerIcon.classList.remove('header__hamburger--open')
     
     closeSubmenus()
 }
@@ -21,7 +21,7 @@ function toggleMenu() {
         ? closeMenu()
         : openMenu()
 }
-menuMobile.addEventListener('click', toggleMenu)
+hamburgerIcon.addEventListener('click', toggleMenu)
 
 
 // Submenu

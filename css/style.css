@@ -98,7 +98,7 @@ html, body {
     position: relative;
 }
 
-.header__mobile-menu {
+.header__hamburger {
     display: none;
 }
 
@@ -115,6 +115,7 @@ html, body {
 }
 
 .header__logo {
+    display: flex;
     margin-right: 4.8rem;
 }
 
@@ -448,9 +449,38 @@ html, body {
         max-width: none;
     }
 
-    .header__mobile-menu {
-        display: flex;
-        align-items: center;
+    .header__hamburger {
+        display: block;
+        align-self: center;
+        width: 3.2rem;
+        height: 1.8rem;
+        border-top: .2rem solid;
+        color: hsl(0, 0%, 100%);
+        transition: .3s;
+    }
+
+    .header__hamburger::before,
+    .header__hamburger::after {
+        content: '';
+        display: block;
+        width: inherit;
+        height: .2rem;
+        margin-top: .6rem;
+        background-color: currentColor;
+        transition: .3s;
+    }
+
+    .header__hamburger--open {
+        border: transparent;    
+    }
+
+    .header__hamburger--open::before {
+        transform: rotate(135deg);
+    }
+
+    .header__hamburger--open::after {
+        transform: rotate(-135deg);
+        margin-top: -.2rem;
     }
 
     .header__nav {
