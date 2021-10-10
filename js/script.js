@@ -1,39 +1,55 @@
 const hamburgerIcon = document.querySelector('.js-hamburger')
 const headerNav = document.querySelector('.js-header-nav')
-const dropdownItems = document.querySelectorAll('.header__dropdown__item')
-
+const menuItems = document.querySelectorAll('.header__dropdown__item-text')
 
 // Menu
-function openMenu() {
+const closeMenu = () => {
+    closeSubmenu()
+    headerNav.classList.remove('header__nav--show')
+    setTimeout( () => headerNav.classList.remove('header__nav--open'), 300)
+    hamburgerIcon.classList.remove('header__hamburger--open')
+}
+
+const openMenu = () => {
     headerNav.classList.add('header__nav--open')
     setTimeout(() => headerNav.classList.add('header__nav--show'), 10)
     hamburgerIcon.classList.add('header__hamburger--open')
 }
-function closeMenu() {
-    headerNav.classList.remove('header__nav--show')
-    setTimeout(() =>headerNav.classList.remove('header__nav--open'), 200)
-    hamburgerIcon.classList.remove('header__hamburger--open')
-    
-    closeSubmenus()
-}
-function toggleMenu() {
-    headerNav.classList.contains('header__nav--open') 
+
+const isMenuOpen = () => headerNav.classList.contains('header__nav--open')
+
+const toggleMenu = () => {
+    isMenuOpen()
         ? closeMenu()
         : openMenu()
 }
+
 hamburgerIcon.addEventListener('click', toggleMenu)
 
+// submenu
+let selectedSubmenu
 
-// Submenu
-function openSubmenu(item) {
-    item.querySelector('.header__dropdown__submenu-area').classList.add('header__dropdown__submenu-area--open')
+const closeSubmenu = () => {
+    if (selectedSubmenu !== null)
+        selectedSubmenu.classList.remove('header__dropdown__item--open')
 }
-function closeSubmenus() {
-    const submenus = document.querySelectorAll('.header__dropdown__submenu-area')
-    submenus.forEach( submenu => submenu.classList.remove('header__dropdown__submenu-area--open'))
+
+const openSubmenu = () => selectedSubmenu.classList.add('header__dropdown__item--open')
+
+const isSubmenuOpen = () => selectedSubmenu.classList.contains('header__dropdown__item--open')
+
+const toggleSubmenu = e => {
+    selectedSubmenu = e.target.closest('.header__dropdown__item')
+    const allOpenSubmenus = document.querySelectorAll('.header__dropdown__item--open')
+    
+    allOpenSubmenus.forEach( submenu => {
+        if (submenu !== selectedSubmenu) 
+            submenu.classList.remove('header__dropdown__item--open')
+    })
+
+    isSubmenuOpen()
+        ? closeSubmenu()
+        : openSubmenu()
 }
-function toggleSubmenu(item) {
-    closeSubmenus()
-    openSubmenu(item)
-}
-dropdownItems.forEach( item => item.addEventListener('click', () => toggleSubmenu(item)))
+
+menuItems.forEach( menuItem => menuItem.addEventListener('click', toggleSubmenu))

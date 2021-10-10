@@ -107,6 +107,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    z-index: 1;
 }
 
 .header__dropdown {
@@ -534,6 +535,14 @@ html, body {
         color: var(--text-body);
     }
 
+    .header__dropdown__item:hover .header__dropdown__item-text::after {
+        transform: none;
+    }
+
+    .header__dropdown__item--open .header__dropdown__item-text::after {
+        transform: rotate(-180deg) !important;
+    }
+
     .header__dropdown__item:hover .header__dropdown__submenu-area {
         display: none;
     }
@@ -546,7 +555,7 @@ html, body {
         margin-top: 1.6rem;
     }
 
-    .header__dropdown__submenu-area--open {
+    .header__dropdown__item--open .header__dropdown__submenu-area {
         display: block !important;
     }
 
