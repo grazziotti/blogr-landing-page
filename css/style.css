@@ -81,7 +81,7 @@ html, body {
 /* --- header --- */
 .header {
     background-image: url('../images/bg-pattern-intro.svg'), linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
-    background-position: left;
+    background-position: -43rem -134rem, center;
     border-bottom-left-radius: 8rem;
     height: 60rem;
     padding: 6rem 0;
@@ -111,7 +111,6 @@ html, body {
 }
 
 .header__logo {
-    display: flex;
     margin-right: 4.8rem;
 }
 
@@ -122,6 +121,7 @@ html, body {
 
 .header__dropdown__item-text {
     position: relative;
+    font-weight: 700;
 }
 
 .header__dropdown__item-text::after {
@@ -224,14 +224,14 @@ html, body {
 }
 
 .header__intro__header {
-    font-size: 6.4rem;
+    font-size: 5.6rem;
     font-weight: 600;
     color: hsl(0, 0%, 100%);
 }
 
 .header__intro__subtitle {
     margin-top: .8rem;
-    font-size: 2.2rem;
+    font-size: 2rem;
     color:hsl(10, 100%, 89%);
 }
 
@@ -295,7 +295,7 @@ html, body {
     border-bottom-left-radius: 8rem;
     border-top-right-radius: 8rem;
     background-image: url('../images/bg-pattern-circles.svg'), linear-gradient(45deg, hsl(237, 17%, 21%), hsl(237, 23%, 32%));
-    background-position: bottom left;
+    background-position: -23rem -50rem, center;
     background-repeat: no-repeat;   
     height: 40rem;
 }
@@ -367,7 +367,7 @@ html, body {
 }
 
 .footer__content {
-    padding: 10rem 0 5rem;
+    padding: 8rem 0;
     font-family: 'Ubuntu';
 }
 
@@ -632,6 +632,8 @@ html, body {
         height: auto;
         margin-top: 24rem;
         padding-bottom: 10rem;
+        background-size: cover;
+        background-position: center -40rem, center;
     }
 
     .state-of-art__image-area {
@@ -667,6 +669,10 @@ html, body {
 
 
     /* footer */
+    .footer {
+        margin-top: 11rem;
+    }
+
     .footer__content {
         padding: 5rem 0;
     }
@@ -705,7 +711,16 @@ html, body {
         font-size: 2.8rem;
     }
 
+    .header {
+        background-size: 400%;
+        background-position: -40rem -40rem;
+    }
+
     .header__intro__subtitle {
         font-size: 1.8rem;
+    }
+
+    .state-of-art {
+        background-position: center -21rem, center;
     }
 }
