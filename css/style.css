@@ -78,6 +78,21 @@ html, body {
     color: var(--text-body);
 }
 
+[data-anime] {
+    opacity: 0;
+    transition: .5s;
+}
+
+[data-anime="top"] {
+    transform: translateY(-3rem);
+}
+
+[data-anime].animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
 /* --- header --- */
 .header {
     background-image: url('../images/bg-pattern-intro.svg'), linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
@@ -187,7 +202,6 @@ html, body {
 .header__dropdown__submenu-item {
     margin: 1.6rem 0;
     list-style: none;
-    cursor: pointer;
 }
 
 .header__dropdown__submenu-link {
@@ -696,10 +710,8 @@ html, body {
 @media (max-width: 545px) {
     .main-btn,
     .secondary-btn,
-    .footer__card p,
-    .footer__link,
     .text-body {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     .header__intro__header,
